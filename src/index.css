@@ -1,13 +1,194 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  background-color: hsl(235, 21%, 11%);
+
+  box-sizing: border-box;
+  font-size: 1.8rem;
+
+  color: hsl(234, 39%, 85%);
+}
+
+.overlay {
+  background-image: url(../public/images/bg-desktop-dark.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 30rem;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -999;
+}
+
+.container {
+  max-width: 64rem;
+  margin: 10rem auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 4.2rem;
+  letter-spacing: 12.8px;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-circle {
+  height: 2.6rem;
+  width: 2.6rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid hsla(234, 39%, 85%, 0.25);
+  transition: border 0.4s;
+  cursor: pointer;
+}
+
+.input-box {
+  margin-top: 3.6rem;
+
+  width: 100%;
+  background-color: hsl(235, 24%, 19%);
+  padding: 1.6rem;
+
+  display: flex;
+  gap: 2rem;
+}
+
+.input-box input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: hsl(234, 39%, 85%);
+  font-size: 1.8rem;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+
+  list-style: none;
+  margin-top: 2.4rem;
+  background-color: hsl(235, 24%, 19%);
+  width: 100%;
+  /* min-height: 36rem; */
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 1.6rem;
+  border-bottom: 1px solid hsla(234, 39%, 85%, 0.25);
+}
+
+.list-item .btn-circle:hover {
+  border: 1px solid hsl(220, 98%, 61%);
+  cursor: pointer;
+}
+
+.btn-delete {
+  border: none;
+  background: none;
+  margin-left: auto;
+  transition: filter 0.1s;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  filter: brightness(100);
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked + .btn-circle {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 67%));
+  position: relative;
+  transition: all 0.4s;
+}
+
+.checkbox:checked + .btn-circle::after {
+  content: "\2713";
+  display: inline-block;
+  color: #fff;
+  font-size: 1.6rem;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  transition: all 0.3s ease-in;
+}
+
+.checkbox:checked + label + .text {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
+}
+
+/* STATS */
+
+.stats {
+  background-color: hsl(235, 24%, 19%);
+  padding: 1.8rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats p {
+  color: hsl(234, 11%, 52%);
+}
+
+.active {
+  color: hsl(220, 98%, 61%) !important;
+}
+
+.sort-list {
+  display: flex;
+  gap: 2.4rem;
+  list-style: none;
+}
+
+.sort-list button,
+.sort-list + button {
+  font-size: 1.6rem;
+  color: hsl(234, 11%, 52%);
+  cursor: pointer;
+  transition: color 0.2s ease-in;
+}
+
+.sort-list button:hover,
+.sort-list + button:hover {
+  color: hsl(237, 14%, 26%);
 }
